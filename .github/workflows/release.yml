@@ -17,7 +17,11 @@ jobs:
           node-version: 20
 
       - run: npm install
+        env:
+            GH_TOKEN: ${{ secrets.GH_TOKEN }}
       - run: npm run dist
+        env:
+            GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
       - name: Upload Artifacts
         uses: softprops/action-gh-release@v1
@@ -27,4 +31,5 @@ jobs:
             dist/*.deb
             dist/*.rpm
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
+            GH_TOKEN: ${{ secrets.GH_TOKEN }}
+        
