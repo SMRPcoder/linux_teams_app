@@ -8,6 +8,8 @@ on:
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write   # ✅ allows GITHUB_TOKEN to create releases
     steps:
       - uses: actions/checkout@v3
 
@@ -17,13 +19,9 @@ jobs:
           node-version: 20
 
       - run: npm install
-        env:
-            GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      - run: npm run dist
-        env:
-            GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      - run: npm run dist -- --publish never   # ✅ prevent electron-builder from publishing
 
-      - name: Upload Artifacts
+      - name: Upload to GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
@@ -31,5 +29,4 @@ jobs:
             dist/*.deb
             dist/*.rpm
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}   # ✅ built-in token, no need for GH_TOKEN

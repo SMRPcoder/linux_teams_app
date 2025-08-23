@@ -95,13 +95,13 @@ function createWindow() {
   // Enable desktop notifications and intercept Teams notifications
   if (Notification.isSupported()) {
     // Test notification on load
-    mainWindow.webContents.on('did-finish-load', () => {
-      new Notification({
-        title: 'Teams App',
-        body: 'Microsoft Teams is ready!',
-        timeoutType: 'never' // Try to keep notification visible
-      }).show();
-    });
+    // mainWindow.webContents.on('did-finish-load', () => {
+    //   new Notification({
+    //     title: 'Teams App',
+    //     body: 'Microsoft Teams is ready!',
+    //     timeoutType: 'never' // Try to keep notification visible
+    //   }).show();
+    // });
 
     // Intercept Notification API calls from Teams
     mainWindow.webContents.executeJavaScript(`
