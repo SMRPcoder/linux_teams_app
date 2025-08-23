@@ -26,3 +26,5 @@ jobs:
             dist/*.AppImage
             dist/*.deb
             dist/*.rpm
+        env:
+          GH_TOKEN: ${{ secrets.GH_TOKEN }}
