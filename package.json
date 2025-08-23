@@ -1,7 +1,7 @@
 {
     "name": "my-teams-app",
     "version": "1.0.0",
-    "description": "Electron app wrapping Microsoft Teams PWA for Linux",
+    "description": "Unofficial Microsoft Teams client for Linux.Electron app wrapping Microsoft Teams PWA for Linux",
     "main": "index.js",
     "homepage": "https://example.com/teams-electron-app",
     "scripts": {
