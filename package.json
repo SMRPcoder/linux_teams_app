@@ -1,0 +1,32 @@
+{
+    "name": "my-teams-app",
+    "version": "1.0.0",
+    "description": "Electron app wrapping Microsoft Teams PWA for Linux",
+    "main": "index.js",
+    "homepage": "https://example.com/teams-electron-app",
+    "scripts": {
+        "start": "electron .",
+        "dist": "electron-builder"
+    },
+    "build": {
+        "appId": "com.example.teams-electron",
+        "productName": "My Teams",
+        "linux": {
+            "target": [
+                "AppImage",
+                "deb",
+                "rpm"
+            ],
+            "icon": "build/icons",
+            "category": "Office",
+            "maintainer": "RajaPandeeswaran"
+        },
+        "afterPack": "./afterPack.js"
+    },
+    "author": "RajaPandeeswaran",
+    "license": "MIT",
+    "devDependencies": {
+        "electron": "^37.2.5",
+        "electron-builder": "^26.0.12"
+    }
+}
