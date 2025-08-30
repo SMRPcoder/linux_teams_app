@@ -31,20 +31,20 @@ Available packages:
 
 **Ubuntu/Debian**:
 ```bash
-wget https://github.com/SMRPcoder/linux_teams_app/releases/latest/download/my-teams-app_1.1.6_amd64.deb
-sudo apt install ./my-teams-app_1.1.6_amd64.deb
+wget https://github.com/SMRPcoder/linux_teams_app/releases/latest/download/my-teams-app_1.1.7_amd64.deb
+sudo apt install ./my-teams-app_1.1.7_amd64.deb
 ```
 
 **Fedora/RHEL**:
 ```bash
-wget https://github.com/SMRPcoder/linux_teams_app/releases/latest/download/my-teams-app-1.1.6.x86_64.rpm
-sudo dnf install ./my-teams-app-1.1.6.x86_64.rpm
+wget https://github.com/SMRPcoder/linux_teams_app/releases/latest/download/my-teams-app-1.1.7.x86_64.rpm
+sudo dnf install ./my-teams-app-1.1.7.x86_64.rpm
 ```
 
 **AppImage** (Portable):
 ```bash
-chmod +x My.Teams-1.1.6.AppImage
-./My.Teams-1.1.6.AppImage
+chmod +x My.Teams-1.1.7.AppImage
+./My.Teams-1.1.7.AppImage
 ```
 
 ---
