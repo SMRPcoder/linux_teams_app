@@ -38,7 +38,8 @@ function createWindow() {
     event.preventDefault();
     console.log('[Intercepted new-window]', url);
     // Instead of opening a new window, redirect the main window
-    mainWindow.loadURL(url);
+    // mainWindow.loadURL(url);
+    shell.openExternal(url);
     // if (url.startsWith('http:') || url.startsWith('https:')) {
     //   console.log(url);
     //   shell.openExternal(url);
@@ -55,8 +56,11 @@ function createWindow() {
 
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
     if (url.startsWith('http:') || url.startsWith('https:')) {
-      console.log(url);
-      mainWindow.loadURL(url);
+      if (/^https:\/\/.*teams\.com/.test(url)){
+        mainWindow.loadURL(url);
+      }else{
+        shell.openExternal(url);
+      }
     }
     return { action: 'deny' };
   })
