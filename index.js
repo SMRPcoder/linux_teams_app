@@ -55,12 +55,21 @@ function createWindow() {
   // })
 
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
-    if (url.startsWith('http:') || url.startsWith('https:')) {
-      if (/^https:\/\/.*teams\.com/.test(url)){
-        mainWindow.loadURL(url);
-      }else{
-        shell.openExternal(url);
-      }
+    // if (url.startsWith('http:') || url.startsWith('https:')) {
+    //   if (/^https:\/\/.*teams\.com/.test(url)){
+    //     mainWindow.loadURL(url);
+    //   }else{
+    //     shell.openExternal(url);
+    //   }
+    // }
+    // return { action: 'deny' };
+    const regex = /^https?:\/\/teams\.[^.]+\.com(?:\/|$)/i;
+    if (regex.test(url)) { mainWindow.loadURL(url); }
+    else {
+      // let child__Window = new BrowserWindow({ width: 800, height: 400, });
+      // child__Window.loadURL(url);
+      // child__Window.show();
+      shell.openExternal(url);
     }
     return { action: 'deny' };
   })
